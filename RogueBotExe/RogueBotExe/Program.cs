@@ -25,12 +25,25 @@ namespace RogueBot {
             if (message.Channel.Id == 455410123926405121) {
                 if (message.Content == "!bot") {
                     await message.Channel.SendMessageAsync(
+                        "!cache - Manual to delete all saved data\n" +
                         "!logs - Log locations\n" +
                         "!map - Link to the ongoing mapping progress\n" +
                         "!pins - Let people know about the pins\n" +
                         "!rt - Link to the mod download\n" +
                         "!rtfm - Link to the RogueTech manual\n" +
                         "!wartech - Link to the WarTech manual\n"
+                        );
+                }
+
+                if (message.Content == "!cache") {
+                    await message.Channel.SendMessageAsync(
+                        "DELETE C:\\Users[USERNAME]\\AppData\\LocalLow\\Harebrained Schemes\\BATTLETECH\\profiles.dat (best delete it all)\n" +
+                        "DELETE C:\\Users[USERNAME]\\AppData\\Local\\HarebrainedSchemes (delete it all too)\n" +
+                        "DELETE C:\\Users[USERNAME]\\AppData\\Local\\Temp\\Harebrained Schemes\n" +
+                        "DELETE steam\\steamapps\\shadercache\\637090\n" +
+                        "DELETE steam\\userdata[USERID]\\637090\\remote\\C0\\settings_cloud.sav\n" +
+                        "\n" +
+                        "also delete in your registry HKEY_CURRENT_USER\\Software\\Harebrained Schemes\\BATTLETECH"
                         );
                 }
                 if (message.Content == "!pins") {
