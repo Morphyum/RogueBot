@@ -31,10 +31,14 @@ namespace RogueBot {
                         "!pins - Let people know about the pins\n" +
                         "!rt - Link to the mod download\n" +
                         "!rtfm - Link to the RogueTech manual\n" +
-                        "!wartech - Link to the WarTech manual\n"
+                        "!wartech - Link to the WarTech manual\n" +
+                        "!wiki - Link to the wiki\n"
                         );
                 }
 
+                if (message.Content == "!wiki") {
+                    await message.Channel.SendMessageAsync("https://roguetech.wikia.com/");
+                }
                 if (message.Content == "!cache") {
                     await message.Channel.SendMessageAsync(
                         "DELETE C:\\Users[USERNAME]\\AppData\\LocalLow\\Harebrained Schemes\\BATTLETECH\\profiles.dat (best delete it all)\n" +
