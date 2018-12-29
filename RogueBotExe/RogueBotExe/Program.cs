@@ -22,24 +22,33 @@ namespace RogueBot {
         }
 
         private async Task MessageReceived(SocketMessage message) {
-            if (message.Channel.Id == 455410123926405121) {
+            if (message.Channel.Id == 455410123926405121 || message.Channel.Id == 486886064519249930 || message.Channel.Id == 490635381197504513) {
                 if (message.Content == "!bot") {
                     await message.Channel.SendMessageAsync(
+                        "!beta - Asks for any unwanted installs\n"+
                         "!cache - Manual to delete all saved data\n" +
+                        "!faq - Link to the FAQ page\n" +
                         "!logs - Log locations\n" +
                         "!map - Link to the ongoing mapping progress\n" +
+                        "!output - output log locations" +
                         "!pins - Let people know about the pins\n" +
                         "!rt - Link to the mod download\n" +
                         "!rtfm - Link to the RogueTech manual\n" +
                         "!wartech - Link to the WarTech manual\n" +
+                        "!warmap - Link to the Online Map\n" +
                         "!wiki - Link to the wiki\n"
                         );
                 }
-
-                if (message.Content == "!wiki") {
-                    await message.Channel.SendMessageAsync("https://roguetech.wikia.com/");
+                else if (message.Content == "!beta") {
+                    await message.Channel.SendMessageAsync("Are you on any beta?\nHave you installed anything not in the installer?\nDid you delete mods folder before install?");
                 }
-                if (message.Content == "!cache") {
+                else if (message.Content == "!faq") {
+                    await message.Channel.SendMessageAsync("https://roguetech.gamepedia.com/FAQ");
+                }
+                else if (message.Content == "!wiki") {
+                    await message.Channel.SendMessageAsync("https://roguetech.gamepedia.com/");
+                }
+                else if (message.Content == "!cache") {
                     await message.Channel.SendMessageAsync(
                         "DELETE C:\\Users[USERNAME]\\AppData\\LocalLow\\Harebrained Schemes\\BATTLETECH\\profiles.dat (best delete it all)\n" +
                         "DELETE C:\\Users[USERNAME]\\AppData\\Local\\HarebrainedSchemes (delete it all too)\n" +
@@ -50,28 +59,34 @@ namespace RogueBot {
                         "also delete in your registry HKEY_CURRENT_USER\\Software\\Harebrained Schemes\\BATTLETECH"
                         );
                 }
-                if (message.Content == "!pins") {
+                else if (message.Content == "!pins") {
                     await message.Channel.SendMessageAsync("Please check the pins located at the top right (the little pin needle symbol).");
                 }
-                if (message.Content == "!map") {
+                else if (message.Content == "!map") {
                     await message.Channel.SendMessageAsync("https://docs.google.com/spreadsheets/d/1FXDZMTEZwp71qCxqnaW3MpaB1ZfovaJudvZrM6pnOGk/edit?usp=sharing");
                 }
-                if (message.Content == "!ping") {
+                else if (message.Content == "!ping") {
                     await message.Channel.SendMessageAsync("Pong!");
                 }
-                if (message.Content == "!rtfm") {
+                else if (message.Content == "!rtfm") {
                     await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/79?tab=articles");
                 }
-                if (message.Content == "!rt") {
+                else if (message.Content == "!rt") {
                     await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/79");
                 }
-                if (message.Content == "!wartech") {
+                else if (message.Content == "!wartech") {
                     await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/articles/76");
                 }
-                if (message.Content == "!logs") {
-                    await message.Channel.SendMessageAsync("BATTLETECH\\Mods\\BTModLoader.log\nBATTLETECH\\Mods\\\\.modtek\\ModTek.log\nBATTLETECH\\BattleTech_Data\\output_log.txt\n+ log from relevant mod folder if possible (example: BATTLETECH\\Mods\\MODNAME\\log.txt)\n\nJust drag and drop them in here.");
+                else if (message.Content == "!warmap") {
+                    await message.Channel.SendMessageAsync("https://roguetech.org");
                 }
-                if (message.Content == "!pone") {
+                else if (message.Content == "!logs") {
+                    await message.Channel.SendMessageAsync("BATTLETECH\\Mods\\BTModLoader.log\nBATTLETECH\\Mods\\\\.modtek\\ModTek.log\nBATTLETECH\\Mods\\cleaned_output_log.txt\n+ log from relevant mod folder if possible (example: BATTLETECH\\Mods\\MODNAME\\log.txt)\n\nJust drag and drop them in here.");
+                }
+                else if (message.Content == "!output") {
+                    await message.Channel.SendMessageAsync("BATTLETECH\\Mods\\cleaned_output_log.txt\nJust drag and drop it in here.");
+                }
+                else if (message.Content == "!pone") {
                     await message.Channel.SendMessageAsync("<@248490263457038336>");
 
                     await message.Channel.SendMessageAsync("\n▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓\n▒▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓\n▒▒░▐▌░▒░░░░░░▒▒▒▒▒▒▒▒▒\n▒▒░░▌░░░░░░░░░░▒▒▒▒▒▒▒\n▒▒▒▒░░░░░░░░░░░░▓▓▓▒▒▒\n▒▒▒▒▒▒░░▀▀███░░░░▓▒▒▒▓\n▒▒▒▒▒▒░▌▄████▌░░░▓▒▒▒▓\n▒▒▒▒▒░░███▄█▌░░░▓▓▒▓▓▓\n▒▒▒▒▒▒▒░▀▀▀▀░░░░▓▓▒▒▓▓\n▒▒▒▒▒▒▒▒░░░░░░░░░▓▓▓▓▓\n▒▒▒▒▒▒▒░░░░░░▐▄░▓▓▓▓▓▓\n▒▒▒▒▒▒░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
