@@ -30,7 +30,7 @@ namespace RogueBot {
                         "!faq - Link to the FAQ page\n" +
                         "!logs - Log locations\n" +
                         "!map - Link to the ongoing mapping progress\n" +
-                        "!output - output log locations" +
+                        "!output - output log locations\n" +
                         "!pins - Let people know about the pins\n" +
                         "!rt - Link to the mod download\n" +
                         "!rtfm - Link to the RogueTech manual\n" +
