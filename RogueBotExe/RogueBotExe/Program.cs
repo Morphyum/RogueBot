@@ -81,7 +81,7 @@ namespace RogueBot {
                     await message.Channel.SendMessageAsync("https://roguetech.org");
                 }
                 else if (message.Content == "!logs") {
-                    await message.Channel.SendMessageAsync("BATTLETECH\\Mods\\BTModLoader.log\nBATTLETECH\\Mods\\\\.modtek\\ModTek.log\nBATTLETECH\\Mods\\cleaned_output_log.txt\n+ log from relevant mod folder if possible (example: BATTLETECH\\Mods\\MODNAME\\log.txt)\n\nJust drag and drop them in here.");
+                    await message.Channel.SendMessageAsync("BATTLETECH\\Mods\\\\.modtek\\ModTek.log\nBATTLETECH\\Mods\\cleaned_output_log.txt\n+ log from relevant mod folder if possible (example: BATTLETECH\\Mods\\MODNAME\\log.txt)\n\nJust drag and drop them in here.");
                 }
                 else if (message.Content == "!output") {
                     await message.Channel.SendMessageAsync("BATTLETECH\\Mods\\cleaned_output_log.txt\nJust drag and drop it in here.");
