@@ -25,6 +25,7 @@ namespace RogueBot {
             if (message.Channel.Id == 455410123926405121 || message.Channel.Id == 486886064519249930 || message.Channel.Id == 490635381197504513) {
                 if (message.Content == "!bot") {
                     await message.Channel.SendMessageAsync(
+                        "!assets - Link to asset bundle\n"+
                         "!beta - Asks for any unwanted installs\n"+
                         "!cache - Manual to delete all saved data\n" +
                         "!faq - Link to the FAQ page\n" +
@@ -38,6 +39,9 @@ namespace RogueBot {
                         "!warmap - Link to the Online Map\n" +
                         "!wiki - Link to the wiki\n"
                         );
+                }
+                else if (message.Content == "!assets") {
+                    await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/393");
                 }
                 else if (message.Content == "!beta") {
                     await message.Channel.SendMessageAsync("Are you on any beta?\nHave you installed anything not in the installer?\nDid you delete mods folder before install?");
