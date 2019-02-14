@@ -20,7 +20,8 @@ namespace RogueBot {
             // Block this task until the program is closed.
             await Task.Delay(-1);
         }
-
+        // Anemone221 - what does Large Collection of Mechs - by Eternus do?
+        // Raza5 - It adds a large collection of new mechs @Anemone221
         private async Task MessageReceived(SocketMessage message) {
             if (message.Channel.Id == 455410123926405121 || message.Channel.Id == 486886064519249930 || message.Channel.Id == 490635381197504513) {
                 if (message.Content == "!bot") {
