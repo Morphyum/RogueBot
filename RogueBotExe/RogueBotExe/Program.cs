@@ -36,10 +36,14 @@ namespace RogueBot {
                         "!pins - Let people know about the pins\n" +
                         "!rt - Link to the mod download\n" +
                         "!rtfm - Link to the RogueTech manual\n" +
+                        "!ticket - Tell people to open a ticket\n" +
                         "!wartech - Link to the WarTech manual\n" +
                         "!warmap - Link to the Online Map\n" +
                         "!wiki - Link to the wiki\n"
                         );
+                }
+                else if (message.Content == "!ticket") {
+                    await message.Channel.SendMessageAsync("Please enter a support ticket regarding your issue\nTickets can be opened in #roguetech_supportbot\nJust scroll to the top and click the little envolope.");
                 }
                 else if (message.Content == "!assets") {
                     await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/393");
