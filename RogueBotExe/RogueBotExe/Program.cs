@@ -23,7 +23,7 @@ namespace RogueBot {
         // Anemone221 - what does Large Collection of Mechs - by Eternus do?
         // Raza5 - It adds a large collection of new mechs @Anemone221
         private async Task MessageReceived(SocketMessage message) {
-            if (message.Channel.Id == 455410123926405121 || message.Channel.Id == 486886064519249930 || message.Channel.Id == 490635381197504513) {
+            if (message.Channel.Name.ToLower().Contains("roguetech") || message.Channel.Name.ToLower().Contains("ticket")) {
                 if (message.Content == "!bot") {
                     await message.Channel.SendMessageAsync(
                         "!assets - Link to asset bundle\n"+
@@ -37,7 +37,6 @@ namespace RogueBot {
                         "!rt - Link to the mod download\n" +
                         "!rtfm - Link to the RogueTech manual\n" +
                         "!ticket - Tell people to open a ticket\n" +
-                        "!wartech - Link to the WarTech manual\n" +
                         "!warmap - Link to the Online Map\n" +
                         "!wiki - Link to the wiki\n"
                         );
@@ -78,13 +77,10 @@ namespace RogueBot {
                     await message.Channel.SendMessageAsync("Pong!");
                 }
                 else if (message.Content == "!rtfm") {
-                    await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/79?tab=articles");
+                    await message.Channel.SendMessageAsync("https://roguetech.gamepedia.com/");
                 }
                 else if (message.Content == "!rt") {
                     await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/79");
-                }
-                else if (message.Content == "!wartech") {
-                    await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/articles/76");
                 }
                 else if (message.Content == "!warmap") {
                     await message.Channel.SendMessageAsync("https://roguetech.org");
@@ -99,6 +95,9 @@ namespace RogueBot {
                     await message.Channel.SendMessageAsync("<@248490263457038336>");
 
                     await message.Channel.SendMessageAsync("\n▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓\n▒▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓\n▒▒░▐▌░▒░░░░░░▒▒▒▒▒▒▒▒▒\n▒▒░░▌░░░░░░░░░░▒▒▒▒▒▒▒\n▒▒▒▒░░░░░░░░░░░░▓▓▓▒▒▒\n▒▒▒▒▒▒░░▀▀███░░░░▓▒▒▒▓\n▒▒▒▒▒▒░▌▄████▌░░░▓▒▒▒▓\n▒▒▒▒▒░░███▄█▌░░░▓▓▒▓▓▓\n▒▒▒▒▒▒▒░▀▀▀▀░░░░▓▓▒▒▓▓\n▒▒▒▒▒▒▒▒░░░░░░░░░▓▓▓▓▓\n▒▒▒▒▒▒▒░░░░░░▐▄░▓▓▓▓▓▓\n▒▒▒▒▒▒░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+                }
+                else if (message.Content == "!support") {
+                    await message.Channel.SendMessageAsync("Thank you for using skynet!\nPlease standby while we fetch our underpayed staff to help you.\nWhile you wait please provide us with following logs.\n\nBATTLETECH\\Mods\\\\.modtek\\ModTek.log\nBATTLETECH\\Mods\\cleaned_output_log.txt\n+ log from relevant mod folder if possible (example: BATTLETECH\\Mods\\MODNAME\\log.txt)\n\nJust drag and drop them in here.\n\nAlso please check <#562644533582495744> if your question is already listed.\n\nThank you for your patience!");
                 }
             }
         }
