@@ -42,7 +42,7 @@ namespace RogueBot {
                         );
                 }
                 else if (message.Content == "!ticket") {
-                    await message.Channel.SendMessageAsync("Please enter a support ticket regarding your issue\nTickets can be opened in #roguetech_supportbot\nJust scroll to the top and click the little envolope.");
+                    await message.Channel.SendMessageAsync("Please enter a support ticket regarding your issue\nTickets can be opened in <#552500784659431436>\nJust scroll to the top and click the little envolope.");
                 }
                 else if (message.Content == "!assets") {
                     await message.Channel.SendMessageAsync("https://www.nexusmods.com/battletech/mods/393");
@@ -96,7 +96,7 @@ namespace RogueBot {
 
                     await message.Channel.SendMessageAsync("\n▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓\n▒▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓\n▒▒░▐▌░▒░░░░░░▒▒▒▒▒▒▒▒▒\n▒▒░░▌░░░░░░░░░░▒▒▒▒▒▒▒\n▒▒▒▒░░░░░░░░░░░░▓▓▓▒▒▒\n▒▒▒▒▒▒░░▀▀███░░░░▓▒▒▒▓\n▒▒▒▒▒▒░▌▄████▌░░░▓▒▒▒▓\n▒▒▒▒▒░░███▄█▌░░░▓▓▒▓▓▓\n▒▒▒▒▒▒▒░▀▀▀▀░░░░▓▓▒▒▓▓\n▒▒▒▒▒▒▒▒░░░░░░░░░▓▓▓▓▓\n▒▒▒▒▒▒▒░░░░░░▐▄░▓▓▓▓▓▓\n▒▒▒▒▒▒░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
                 }
-                else if (message.Content == "!support") {
+                else if (message.Content.Contains("!support")) {
                     await message.Channel.SendMessageAsync("Thank you for using skynet!\nPlease standby while we fetch our underpayed staff to help you.\nWhile you wait please provide us with following logs.\n\nBATTLETECH\\Mods\\\\.modtek\\ModTek.log\nBATTLETECH\\Mods\\cleaned_output_log.txt\n+ log from relevant mod folder if possible (example: BATTLETECH\\Mods\\MODNAME\\log.txt)\n\nJust drag and drop them in here.\n\nAlso please check <#562644533582495744> if your question is already listed.\n\nThank you for your patience!");
                 }
             }
