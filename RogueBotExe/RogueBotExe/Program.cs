@@ -1,16 +1,17 @@
 ﻿using Discord;
 using Discord.WebSocket;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RogueBot {
     public class Program {
+        DiscordSocketClient client = new DiscordSocketClient();
+
         public static void Main(string[] args)
             => new Program().MainAsync().GetAwaiter().GetResult();
 
         public async Task MainAsync() {
-            var client = new DiscordSocketClient();
-
             client.Log += Log;
             client.MessageReceived += MessageReceived;
             string token = Secret.token; // Remember to keep this private!
@@ -23,6 +24,12 @@ namespace RogueBot {
         // Anemone221 - what does Large Collection of Mechs - by Eternus do?
         // Raza5 - It adds a large collection of new mechs @Anemone221
         private async Task MessageReceived(SocketMessage message) {
+            foreach(SocketUser user in message.MentionedUsers) {
+                if (user.Mention.Equals(client.CurrentUser.Mention)) {
+                    await message.Channel.SendMessageAsync("Woof!");
+                }
+            }
+            
             if (message.Channel.Name.ToLower().Contains("roguetech") || message.Channel.Name.ToLower().Contains("ticket")) {
                 if (message.Content == "!bot") {
                     await message.Channel.SendMessageAsync(
