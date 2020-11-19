@@ -26,6 +26,7 @@ namespace RogueBot
             LoadTicket();
             client.Log += Log;
             client.MessageReceived += MessageReceived;
+            client.ChannelCreated += ChannelCreated;
             string token = Secret.token; // Remember to keep this private!
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
@@ -34,8 +35,32 @@ namespace RogueBot
             await Task.Delay(-1);
         }
 
-        private Task Client_Connected() {
-            throw new NotImplementedException();
+        private async Task ChannelCreated(SocketChannel arg) {
+            var channel = arg as SocketTextChannel;
+            if(channel != null) {
+                if (channel.Name.StartsWith("ticket-")) {
+                    var server = channel.Guild as IGuild;
+                    var categories = await server.GetCategoriesAsync();
+                    var targetCategory = categories.FirstOrDefault(x => x.Name.ToLower() == "support") as SocketCategoryChannel;
+
+                    if (targetCategory.Channels.Count >= 50) {
+                        bool searchCategory = true;
+                        for (int i = 2; searchCategory; i++) {
+                            targetCategory = categories.FirstOrDefault(x => x.Name.ToLower() == "support" + i) as SocketCategoryChannel;
+                            if (targetCategory == null) {
+                                var role5 = channel.Guild.Roles.FirstOrDefault(x => x.Name.ToLower() == "moderator");
+                                var role4 = channel.Guild.Roles.FirstOrDefault(x => x.Name.ToLower() == "admin");
+                                await channel.SendMessageAsync(role5.Mention + role4.Mention + " Plx Halp, the ticket list is full please create: support" + i + " for me. Thanks <3");
+                                return;
+                            }
+                            else if (targetCategory.Channels.Count < 50) {
+                                searchCategory = false;
+                            }
+                        }
+                    }
+                    await channel.ModifyAsync(prop => prop.CategoryId = targetCategory.Id);
+                }
+            }
         }
 
         // Anemone221 - what does Large Collection of Mechs - by Eternus do?
