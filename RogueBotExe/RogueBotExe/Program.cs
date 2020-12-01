@@ -95,13 +95,17 @@ namespace RogueBot
                     "!rafflecount - Shows number of rafflers\n" +
                     "!rafflereset - Resets Raffle, Admin only\n" +
                     "!raffle - enters the raffle\n" +
+                    "!traits - traits bug\n" +
                     "!winner - draws the raffle winner, Admin only\n"
                     );
             }
             else if (message.Content == "!ticket") {
                 await message.Channel.TriggerTypingAsync();
                 await message.Channel.SendMessageAsync("Please enter a support ticket regarding your issue, \ntickets can be opened by typing \"!openticket\"");
-                //"Please enter a support ticket regarding your issue\nTickets can be opened in <#565112700452077579>\nJust scroll to the top and click the little envelope.");
+            }
+            else if (message.Content == "!traits") {
+                await message.Channel.TriggerTypingAsync();
+                await message.Channel.SendMessageAsync("As per <#565112288315703316>: - Item effects descriptions/Traits are not displayed in the mechlab - restart the game without updating, happens after update");
             }
             else if (message.Content == "!jf") {
                 await message.Channel.TriggerTypingAsync();
