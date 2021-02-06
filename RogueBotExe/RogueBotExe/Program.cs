@@ -151,7 +151,7 @@ namespace RogueBot
                 await message.Channel.TriggerTypingAsync();
                 await message.Channel.SendMessageAsync("Pong!");
             }
-            else if (message.Content.Contains("!rtfm")) {
+            else if (message.Content.Contains("!rtfm") || message.Content == "<:RTFM:807604052325826631>") {
                 string[] topic = message.Content.Split(' ');
                 string extra = "";
                 if (topic.Length > 1) {
